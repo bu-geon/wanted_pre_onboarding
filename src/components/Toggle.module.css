@@ -1,0 +1,42 @@
+.wrapper {
+  position: relative;
+  width: 14em;
+  height: 2em;
+  background-color: #dddddd;
+  border-radius: 2em;
+  margin: auto;
+  cursor: pointer;
+}
+
+.toggle-on {
+  position: absolute;
+  left: 0.1em;
+  top: 0.1em;
+  width: 6.9em;
+  height: 1.8em;
+  border-radius: 2em;
+  background-color: #ffffff;
+}
+
+label {
+  display: inline-block;
+  position: relative;
+  width: 7em;
+  height: 2em;
+  line-height: 2em;
+  border-radius: 2em;
+  text-align: center;
+  font-weight: 800;
+  color: #858785;
+  cursor: pointer;
+  z-index: 100;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+input[type='radio']:checked + label {
+  /* background-color: #ffffff; */
+  color: #3c3d3c;
+}

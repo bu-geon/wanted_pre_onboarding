@@ -1,0 +1,35 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: auto;
+}
+
+form input {
+  width: 100%;
+  height: 2em;
+  padding-inline-start: 1em;
+}
+
+form label {
+  font-size: 12px;
+  text-align: left;
+  cursor: default;
+}
+
+.user-input {
+  position: relative;
+}
+
+.svg {
+  position: absolute;
+  right: -10px;
+  top: 32px;
+  width: 1em;
+  height: 1em;
+}
+
+.email-vaildation {
+  color: red;
+  font-size: 10px;
+}
