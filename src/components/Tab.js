@@ -15,7 +15,9 @@ const Tab = () => {
       <ul className={styles.tab}>
         {tabList.map((item, index) => (
           <li
-            className={selectedTab === item ? styles.selected : ''}
+            className={`${styles.menu} ${
+              selectedTab === item ? styles.selected : ''
+            }`}
             value={index}
             key={index}
             onClick={clickTabHandler}

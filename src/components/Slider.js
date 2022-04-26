@@ -16,23 +16,47 @@ const Slider = () => {
 
   return (
     <Card title='Slider'>
-      <div className={styles.slider}>
+      <div className={styles.wrapper}>
         <div className={styles.dashboard}>
           <span className={styles.percentage}>{percentage}</span>%
         </div>
-        <input type='range' value={percentage} onChange={changeHandler} />
-        {wayPoints.map((el) => (
-          <button
-            type='button'
-            className={styles['way-point']}
-            value={el}
-            onClick={clickHandler}
-            style={{ left: el + '%' }}
-            key={el}
-          >
-            {el}%
-          </button>
-        ))}
+        <section className={styles.slider}>
+          <input
+            type='range'
+            value={percentage}
+            min='0'
+            max='100'
+            step='1'
+            onChange={changeHandler}
+            style={{
+              background: `linear-gradient(to right, #50acad, #50acad ${percentage}%, #ebecf0 ${percentage}%, #ebecf0 100%)`,
+            }}
+          />
+          <div className={styles['dot-container']}>
+            {wayPoints.map((el, index) => (
+              <div
+                className={styles['dot-on-slider']}
+                key={index}
+                style={{
+                  backgroundColor: percentage >= el ? '#50acad' : '#ebecf0',
+                }}
+              />
+            ))}
+          </div>
+          <div className={styles['dot-container']}>
+            {wayPoints.map((el) => (
+              <button
+                type='button'
+                className={styles['way-point']}
+                value={el}
+                onClick={clickHandler}
+                key={el}
+              >
+                {el}%
+              </button>
+            ))}
+          </div>
+        </section>
       </div>
     </Card>
   );

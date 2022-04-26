@@ -2,6 +2,27 @@ import { useState } from 'react';
 import Card from '../UI/Card';
 import styles from './Toggle.module.css';
 
+const OPTION_NAME = { BASIC: '기본', DETAIL: '상세' };
+
+const RadioInput = (props) => {
+  return (
+    <>
+      <input
+        className={props.style}
+        type='radio'
+        id={props.id}
+        name='option'
+        value={props.option}
+        checked={props.checked}
+        readOnly
+      />
+      <label className={styles.label} htmlFor={props.option}>
+        {OPTION_NAME[props.option]}
+      </label>
+    </>
+  );
+};
+
 const Toggle = () => {
   const [isBasic, setIsBasic] = useState(true);
 
@@ -12,26 +33,16 @@ const Toggle = () => {
   return (
     <Card title='Toggle'>
       <div className={styles.wrapper} onClick={clickHandler}>
-        <input
-          className={styles['toggle-switch']}
-          type='radio'
-          id='basic'
-          name='option'
-          value='BASIC'
+        <RadioInput
+          option='BASIC'
+          style={styles['toggle-switch']}
           checked={isBasic}
-          readOnly
         />
-        <label htmlFor='BASIC'>기본</label>
-        <input
-          className=''
-          type='radio'
-          id='detail'
-          name='option'
-          value='DETAIL'
+        <RadioInput
+          option='DETAIL'
+          style={styles['toggle-switch']}
           checked={!isBasic}
-          readOnly
         />
-        <label htmlFor='DETAIL'>상세</label>
         <div
           className={styles['toggle-on']}
           style={{
