@@ -16,8 +16,6 @@ const useCloseDropdown = (ref, setShowDropdown) => {
   useEffect(() => {
     const outsideDropdownClickHandler = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
-        console.log('fuck');
-        console.log(e.target);
         setShowDropdown(false);
       }
     };
