@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import Card from '../UI/Card';
-import styles from './Slider.module.css';
+import { useState } from 'react'
+import Card from '../UI/Card'
+import styles from './Slider.module.css'
 
-const Slider = () => {
-  const [percentage, setPercentage] = useState(0);
-  const wayPoints = [0, 25, 50, 75, 100];
+function Slider() {
+  const [percentage, setPercentage] = useState(0)
+  const wayPoints = [0, 25, 50, 75, 100]
 
   const changeHandler = (e) => {
-    setPercentage(e.target.valueAsNumber);
-  };
+    setPercentage(e.target.valueAsNumber)
+  }
 
   const clickHandler = (e) => {
-    setPercentage(e.target.value);
-  };
+    setPercentage(e.target.value)
+  }
 
   return (
     <Card title='Slider'>
@@ -33,10 +33,10 @@ const Slider = () => {
             }}
           />
           <div className={styles['dot-container']}>
-            {wayPoints.map((el, index) => (
+            {wayPoints.map((el) => (
               <div
                 className={styles['dot-on-slider']}
-                key={index}
+                key={`way-point(${el})`}
                 style={{
                   backgroundColor: percentage >= el ? '#50acad' : '#ebecf0',
                 }}
@@ -45,13 +45,7 @@ const Slider = () => {
           </div>
           <div className={styles['dot-container']}>
             {wayPoints.map((el) => (
-              <button
-                type='button'
-                className={styles['way-point']}
-                value={el}
-                onClick={clickHandler}
-                key={el}
-              >
+              <button type='button' className={styles['way-point']} value={el} onClick={clickHandler} key={el}>
                 {el}%
               </button>
             ))}
@@ -59,7 +53,7 @@ const Slider = () => {
         </section>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default Slider;
+export default Slider

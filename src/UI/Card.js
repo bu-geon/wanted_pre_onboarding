@@ -1,12 +1,18 @@
-import styles from './Card.module.css';
+import styles from './Card.module.css'
+import PropTypes from 'prop-types'
 
-const Card = (props) => {
+function Card({ title, children }) {
   return (
     <div className={styles.card}>
-      <h3>{props.title}</h3>
-      {props.children}
+      <h3>{title}</h3>
+      {children}
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.element,
+}
+
+export default Card
